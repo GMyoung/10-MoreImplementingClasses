@@ -179,7 +179,11 @@ class Line(object):
     def __init__(self, start, end):
         self.start = start.clone()
         self.end = end.clone()
-
+        self.xx = self.start.x
+        self.xy = self.start.y
+        self.yx = self.end.x
+        self.number = 0
+        self.yy = self.end.y
         """
         What comes in:
           -- self
@@ -299,6 +303,7 @@ class Line(object):
         return (self.start == line2.start) and (self.end == line2.end)
 
     def clone(self):
+        self.number = self.number + 1
         return Line(self.start,self.end)
 
         """
@@ -415,7 +420,7 @@ class Line(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -425,6 +430,8 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def length(self):
+        length = ((self.start.x - self.end.x) ** 2 + (self.start.y - self.end.y) ** 2) ** 0.5
+        return length
         """
         What comes in:
           -- self
@@ -448,7 +455,7 @@ class Line(object):
           :rtype: float
         """
         # ---------------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -458,6 +465,7 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def get_number_of_clones(self):
+        return self.number
         """
         What comes in:
           -- self
@@ -488,7 +496,7 @@ class Line(object):
           :rtype: int:
         """
         # ---------------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -498,6 +506,16 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def line_plus(self, other_line):
+        TT = self.start.x + other_line.start.x
+
+        LOLOLOL = self.start.y + other_line.start.y
+
+        aa = self.end.x + other_line.end.x
+
+        GG = self.end.y + other_line.end.y
+
+        return Line(Point(TT, LOLOLOL), Point(aa, GG))
+
         """
         What comes in:
           -- self
@@ -522,7 +540,7 @@ class Line(object):
           :rtype: Line:
         """
         # ---------------------------------------------------------------------
-        # TODO: 9.
+        # DONE: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -532,6 +550,16 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def line_minus(self, other_line):
+        TT = self.start.x - other_line.start.x
+
+        LOLOLOL = self.start.y - other_line.start.y
+
+        aa = self.end.x - other_line.end.x
+
+        GG = self.end.y - other_line.end.y
+
+        return Line(Point(TT, LOLOLOL), Point(aa, GG))
+
         """
         What comes in:
           -- self
@@ -556,7 +584,7 @@ class Line(object):
           :rtype: Line:
         """
         # ---------------------------------------------------------------------
-        # TODO: 10.
+        # DONE: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -566,6 +594,10 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def midpoint(self):
+        aa = (self.start.x + self.end.x) / 2
+        bb = (self.start.y + self.end.y) / 2
+        return (Point(aa, bb))
+
         """
         What comes in:
           -- self
@@ -583,7 +615,7 @@ class Line(object):
           :rtype: Point
         """
         # ---------------------------------------------------------------------
-        # TODO: 11.
+        # DONE: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -593,6 +625,8 @@ class Line(object):
         # ---------------------------------------------------------------------
 
     def is_parallel(self, line2):
+        return round(self.slope(), 12) == round(line2.slope(), 12)
+
         """
         What comes in:
           -- self
@@ -620,7 +654,7 @@ class Line(object):
           :rtype: bool
         """
         # ---------------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -657,6 +691,11 @@ class Line(object):
         #######################################################################
 
     def reset(self):
+        self.start.x = self.xx
+        self.start.y = self.xy
+        self.end.x = self.yx
+        self.end.y = self.yy
+
         """
         What comes in:
           -- self
@@ -686,7 +725,7 @@ class Line(object):
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
         # ---------------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.

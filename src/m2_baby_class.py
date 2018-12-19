@@ -3,7 +3,7 @@ A   Baby   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
+         and Yicheng Yang.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
@@ -29,6 +29,7 @@ def main():
         Baby McKinley is CRYING uncontrollably!  Feed the Baby!
         Baby McKinley is CRYING uncontrollably!  Feed the Baby!
     """
+
     mckinley = Baby('McKinley')
     keegan = Baby('Keegan')
 
@@ -41,8 +42,12 @@ def main():
             mckinley.hour_passes()
 
 
+
+
+
+
 ###############################################################################
-# TODO: 2.
+# DONE: 2.
 #
 #  Step 2a:  Implement a class called   Baby   that has a constructor method
 #            (__init__) and two other methods, as described below.
@@ -98,6 +103,8 @@ def main():
 #         'Baby <your baby's name> is CRYING uncontrollably!  Feed the Baby!'
 #
 ###############################################################################
+class baby:
+    
 
 ###############################################################################
 # The   Baby   class (and its methods) should begins here.
